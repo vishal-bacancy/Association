@@ -1,0 +1,29 @@
+<h1>Listing All Appointments</h1>
+<!-- <p><%= link_to 'New Employee', new_employee_path %></p> -->
+<p><%= link_to 'Index', employees_path %></p>
+<table border = "1">
+  <tr>
+    <th ><b>Id</b></th>
+    <th ><b>Doctor</b></th>
+    <th ><b>Patient</b></th>
+    <th ><b>Date</b></th>
+    <th ><b>Time</b></th>
+	<th ><b>Action</b></th>
+  </tr>
+ 
+  <% @appointments.each do |appointment| %>
+    <tr>
+    	<td><%= appointment.id %></td>
+      <td><%= appointment.doctor_id %></td>
+      <td><%= appointment.patient_id %></td>
+      <td><%= appointment.appointment_date %></td>
+      <td><%= appointment.appointment_time %></td>
+      
+      <td><%= link_to 'Show', appointment_path(appointment) %>&nbsp;&nbsp;&nbsp;
+      <%= link_to 'Edit', edit_appointment_path(appointment) %>&nbsp;&nbsp;&nbsp;
+      <%= link_to 'Delete', appointment_path(appointment),method: :delete,data: { confirm: 'Are you sure?' }%>
+
+      </td>
+    </tr>
+  <% end %>
+</table>
