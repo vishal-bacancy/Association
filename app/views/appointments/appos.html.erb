@@ -19,7 +19,7 @@
       <td><%= appointment.appointment_date %></td>
       <td><%= appointment.appointment_time %></td>
       
-      <td><%= link_to 'Show', appointment_path(appointment) %>&nbsp;&nbsp;&nbsp;
+      <td>
       <%= link_to 'Edit', edit_appointment_path(appointment) %>&nbsp;&nbsp;&nbsp;
       <%= link_to 'Delete', appointment_path(appointment),method: :delete,data: { confirm: 'Are you sure?' }%>
 

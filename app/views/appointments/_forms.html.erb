@@ -21,7 +21,7 @@
  
   <p>
     <%= form.label :Select_Patient %><br>
-    <%= form.collection_select :patient_id, Patient.order(:id), :name, :name %>
+    <%= form.collection_select :patient_id, Patient.order(:id), :id, :name %>
   </p>
  
  <p>

@@ -94,8 +94,8 @@ ActiveRecord::Schema.define(version: 20180122070023) do
 
   create_table "images", force: :cascade do |t|
     t.string "path"
+    t.integer "imageable_id"
     t.string "imageable_type"
-    t.bigint "imageable_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["imageable_type", "imageable_id"], name: "index_images_on_imageable_type_and_imageable_id"

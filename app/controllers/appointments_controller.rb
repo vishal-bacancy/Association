@@ -21,10 +21,35 @@ end
 	def create
 		@dr = Doctor.find(params[:appointment][:doctor_id])
  
-  	@dr.appointments.create(patient_id: params[:appointment][:patient_id],appointment_date: params[:appointment][:appointment_date],appointment_time: params[:appointment][:appointment_time])
-  	redirect_to employees_path
+  	if @dr.appointments.create(patient_id: params[:appointment][:patient_id],appointment_date: params[:appointment][:appointment_date],appointment_time: params[:appointment][:appointment_time])
+#      exit
+  	 redirect_to employees_path
+    else
+      render 'new'
+    end
+
+
   	end
+  def edit
+    @appointment = Appointment.find(params[:id])
+  end
+
+  def update
+    @appointment = Appointment.find(params[:id])
+ 
+  if @appointment.update(get_params)
+    redirect_to appointments_path
+  else
+    render 'edit'
+  end
+  end
+
+  def destroy
+     @appointment = Appointment.find(params[:id])
+   @appointment.destroy
+     redirect_to appointments_path
   
+  end   
 
 
 	
